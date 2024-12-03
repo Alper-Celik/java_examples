@@ -1,5 +1,6 @@
 package org.example;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class App {
@@ -65,10 +66,10 @@ public class App {
     }
     System.out.printf("sonuç: %f", sonuç);
 
-scan.close();
+    scan.close();
   }
 
-  public static void main(String[] args) {
+  public static void not_hesaplama() {
     Scanner scan = new Scanner(System.in);
     System.out.println("sırasıyla vize ve final notunuzu giriniz");
     double vize_notu = scan.nextDouble();
@@ -94,6 +95,45 @@ scan.close();
     }
 
     System.out.printf("notunuz: %f, harf notunuz: %s", not, harf_notu);
+    scan.close();
+
+  }
+
+  public static BigInteger factorial(BigInteger i) {
+    if (i == BigInteger.valueOf(0)) {
+      return BigInteger.valueOf(1);
+    }
+    return i.multiply(factorial(i.subtract(BigInteger.ONE)));
+  }
+
+  public static void artık_yıl() {
+    var scan = new Scanner(System.in);
+
+    System.out.print("bir yılı giriniz: ");
+    var yıl = scan.nextInt();
+    boolean artık_yıl = (yıl % 4 == 0) || ((yıl % 100 == 0) && (yıl % 400 == 0));
+
+    if (artık_yıl) {
+      System.out.printf("%d artık bir yıldır \n", yıl);
+    } else {
+      System.out.printf("%d artık bir yıl değildir \n", yıl);
+    }
+
+    scan.close();
+
+  }
+
+  public static void main(String[] args) {
+    var scan = new Scanner(System.in);
+    var sayı = scan.nextLong();
+    long toplam = 0;
+
+    var sayı_tmp = sayı;
+    while (sayı_tmp != 0) {
+      toplam += sayı_tmp % 10;
+      sayı_tmp = sayı_tmp / 10;
+    }
+    System.out.printf("%d sayısının basamak sayısı %d", sayı, toplam);
     scan.close();
   }
 }
