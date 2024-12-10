@@ -335,6 +335,10 @@ public class App {
       System.out.printf("Sayının endeksi %d\n", found_indicies.getFirst());
     } else {
       System.out.printf("Sayının endexleri(0 dan başlayan): %s\n", arrayToString(found_indicies));
+      System.out.printf("Sayının oludğu dizinin eleman sayısı: %d\n", random_numbers.length);
+      System.out.printf("Sayının tekrar miktarı: %d\n", found_indicies.size());
+      System.out.printf("Sayının çıkma olasılığı: %% %f\n",
+          (((float) found_indicies.size()) / ((float) random_numbers.length)) * 100);
     }
 
     scan.close();
