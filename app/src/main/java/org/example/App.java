@@ -1,7 +1,10 @@
 package org.example;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class App {
   public static void üçgen_kenar() {
@@ -123,7 +126,7 @@ public class App {
 
   }
 
-  public static void main(String[] args) {
+  public static void basamak_toplamı() {
     var scan = new Scanner(System.in);
     var sayı = scan.nextLong();
     long toplam = 0;
@@ -135,5 +138,116 @@ public class App {
     }
     System.out.printf("%d sayısının basamak sayısı %d", sayı, toplam);
     scan.close();
+  }
+
+  public static void pozitif_çarpma(String[] args) {
+    var scan = new Scanner(System.in);
+
+    long sayı1 = scan.nextLong(), sayı2 = scan.nextLong(), toplam = 0;
+
+    for (int i = 0; i < sayı1; i++) {
+      toplam += sayı2;
+    }
+
+    System.out.println(toplam);
+
+    scan.close();
+  }
+
+  public static void kare_çiz(String[] args) {
+    while (true) {
+      var scan = new Scanner(System.in);
+
+      System.out.println("sırasıyla satır ve sütün sayısını giriniz \n*herhangi birine sıfır girerek çıkabilirsiniz");
+      long sayı1 = scan.nextLong(), sayı2 = scan.nextLong(), toplam = 0;
+
+      if (sayı1 == 0 || sayı2 == 0) {
+        break;
+      }
+
+      for (int i = 0; i < sayı1; i++) {
+        for (int j = 0; j < sayı2; j++) {
+          System.out.print("⭐");
+        }
+        System.out.println("");
+      }
+    }
+  }
+
+  public static ArrayList<Integer> PozitifTamBölenler(int sayı) {
+    var tam_bölenler = new ArrayList<Integer>();
+
+    for (int i = 1; i <= sayı; i++) {
+      if (sayı % i == 0) {
+        tam_bölenler.add(i);
+      }
+    }
+
+    return tam_bölenler;
+  }
+
+  public static boolean sihirli_sayı_mı(int sayı) {
+
+    var tam_bölenler = PozitifTamBölenler(sayı);
+    tam_bölenler.removeLast();
+
+    int toplam = 0;
+    for (int i = 0; i < tam_bölenler.size(); i++) {
+      toplam += tam_bölenler.get(i);
+    }
+
+    return toplam == sayı;
+  }
+
+  public static void mükemmek_sayı(String[] args) {
+    var scan = new Scanner(System.in);
+
+    var son_sayı = scan.nextInt();
+
+    ExecutorService executorService = Executors.newFixedThreadPool(32);
+
+    for (int sayı = 1; sayı < son_sayı; sayı++) {
+      int sayı_tmp = sayı;
+      Runnable f = () -> {
+        if (sihirli_sayı_mı(sayı_tmp)) {
+          System.out.printf("⭐ %d bir sihirli sayı\n", sayı_tmp);
+        } else {
+          // System.out.printf("%d bir sihirli sayı değil", sayı);
+        }
+      };
+      executorService.execute(f);
+
+    }
+
+    // son_sayı = scan.nextInt();
+    executorService.close();
+
+    scan.close();
+
+  }
+
+  public static void içi_boş_dörtgen(String[] args) {
+
+    var scan = new Scanner(System.in);
+
+    int en = scan.nextInt(), boy = scan.nextInt();
+
+    for (int i = 1; i <= boy; i++) {
+      for (int j = 1; j <= en; j++) {
+        if (i == 1 || i == boy) {
+          System.out.print("*");
+        } else if (j == 1 || j == en) {
+          System.out.print("*");
+        } else {
+          System.out.print(" ");
+        }
+      }
+      System.out.print("\n");
+    }
+
+  }
+
+  public static void main(String[] args) {
+    içi_boş_dörtgen(args);
   }
 }
