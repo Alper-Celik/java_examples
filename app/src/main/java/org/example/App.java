@@ -2,9 +2,13 @@ package org.example;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.List;
+
+import org.checkerframework.checker.units.qual.s;
 
 public class App {
   public static void üçgen_kenar() {
@@ -247,7 +251,92 @@ public class App {
 
   }
 
+  public static void array_practice(String[] args) {
+    var scan = new Scanner(System.in);
+
+    System.out.println("kaç sayı gireceksiniz");
+
+    int sayı_sayısı = scan.nextInt();
+    float[] sayılar = new float[sayı_sayısı];
+
+    for (int i = 0; i < sayılar.length; i++) {
+      System.out.printf("%s. sayıyı giriniz: ", i + 1);
+      sayılar[i] = scan.nextFloat();
+    }
+
+    float min = sayılar[0], max = sayılar[0], sum = 0;
+
+    for (float f : sayılar) {
+      if (min > f) {
+        min = f;
+      }
+      if (max < f) {
+        max = f;
+      }
+      // min = Math.min(min, f); // öğrenince kullanacakmışız ughh
+      // max = Math.max(max, f);
+      sum += f;
+    }
+
+    float avarage = sum / sayılar.length;
+
+    System.out.printf("en girdiğiniz en küçük sayı : %f, en büyük sayı %f, ortalaması: %f, toplamı: %f", min, max,
+        avarage, sum);
+    scan.close();
+  }
+
+  public static <T> String arrayToString(T[] array) {
+    var sb = new StringBuilder();
+    sb.append("[ ");
+    for (int i = 0; i < array.length; i++) {
+      sb.append(array[i]);
+      if (i != (array.length - 1)) {
+        sb.append(", ");
+      }
+    }
+    sb.append(" ]");
+    return sb.toString();
+  }
+
+  public static <T> String arrayToString(List<T> list) {
+    return arrayToString(list.toArray());
+  }
+
   public static void main(String[] args) {
-    içi_boş_dörtgen(args);
+    var scan = new Scanner(System.in);
+    var rand = new Random();
+
+    System.out.print("Kaç tane rastgele sayı seçilsin: ");
+    var random_numbers = new Integer[scan.nextInt()];
+    System.out.print("En küçük rastgele değer: ");
+    var rand_min = scan.nextInt();
+    System.out.print("En büyük rastgele değer: ");
+    var rand_max = scan.nextInt() + 1;
+
+    for (int i = 0; i < random_numbers.length; i++) {
+      random_numbers[i] = rand.nextInt(rand_min, rand_max);
+    }
+
+    System.out.println(arrayToString(random_numbers));
+
+    System.out.println("Bulmak istediğiniz sayı: ");
+    var searched_num = scan.nextInt();
+    var found_indicies = new ArrayList<Integer>();
+
+    for (int i = 0; i < random_numbers.length; i++) {
+      if (random_numbers[i] == searched_num) {
+        found_indicies.add(i);
+      }
+    }
+
+    if (found_indicies.isEmpty()) {
+      System.out.println("hiçbir sayı bulunamadı");
+    } else if (found_indicies.size() == 1) {
+      System.out.printf("Sayının endeksi %d\n", found_indicies.getFirst());
+    } else {
+      System.out.printf("Sayının endexleri(0 dan başlayan): %s\n", arrayToString(found_indicies));
+    }
+
+    scan.close();
   }
 }
