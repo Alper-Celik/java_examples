@@ -363,7 +363,7 @@ public class App {
 
   }
 
-  public static void main(String[] args) {
+  public static void reverse_the_array(String[] args) {
     Scanner scan = new Scanner(System.in);
     System.out.print("dizinin boyutunu giriniz: ");
     var array = new Long[scan.nextInt()];
@@ -382,5 +382,51 @@ public class App {
     }
 
     System.out.printf("reverse array : %s \n", arrayToString(reverse_array));
+
+    scan.close();
+  }
+
+  public class ortalama_hesap {
+
+    public static double find_avarage_note(double midterms, double finals) {
+      return (midterms * 0.4) + (finals * 0.6);
+    }
+
+    public static char character_note(double avarage) {
+      if (avarage >= 90) {
+        return 'A';
+      } else if (avarage >= 80) {
+        return 'B';
+      } else if (avarage >= 70) {
+        return 'C';
+      } else if (avarage >= 60) {
+        return 'D';
+      } else {
+        return 'F';
+      }
+    }
+
+    public static void main(String[] args) {
+      var scan = new Scanner(System.in);
+
+      System.out.printf("lütfen hesaplanacak öğrenci sayısını giriniz: ");
+
+      for (int i = scan.nextInt(); 0 < i; i--) {
+        System.out.printf("öğrencinin vize notunu giriniz: ");
+        var midterm_note = scan.nextDouble();
+        System.out.printf("öğrencinin final notunu giriniz: ");
+        var final_note = scan.nextDouble();
+        System.out.printf("--> Öğrencinin harf notu = '%s' \n\n",
+            character_note(find_avarage_note(midterm_note, final_note)));
+
+      }
+
+      scan.close();
+    }
+  }
+
+  public static void main(String[] args) {
+    // find_indexes_of_random_array(args);
+    ortalama_hesap.main(args);
   }
 }
