@@ -8,8 +8,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.List;
 
-import org.checkerframework.checker.units.qual.s;
-
 public class App {
   public static void üçgen_kenar() {
     Scanner scan = new Scanner(System.in);
@@ -302,7 +300,7 @@ public class App {
     return arrayToString(list.toArray());
   }
 
-  public static void main(String[] args) {
+  public static void find_indexes_of_random_array(String[] args) {
     var scan = new Scanner(System.in);
     var rand = new Random();
 
@@ -342,5 +340,47 @@ public class App {
     }
 
     scan.close();
+  }
+
+  public static void sum_of_square_of_array(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    System.out.print("dizinin boyutunu giriniz: ");
+    var array = new BigInteger[scan.nextInt()];
+
+    for (int i = 0; i < array.length; i++) {
+      System.err.printf("Dizi[%d] giriniz: ", i);
+      array[i] = scan.nextBigInteger();
+    }
+    var sqaure_sum = new BigInteger("0");
+
+    for (BigInteger bigInteger : array) {
+      sqaure_sum = sqaure_sum.add((bigInteger.multiply(bigInteger)));
+    }
+
+    System.err.printf("karelerinin toplamı : %s", sqaure_sum.toString());
+
+    scan.close();
+
+  }
+
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    System.out.print("dizinin boyutunu giriniz: ");
+    var array = new Long[scan.nextInt()];
+
+    for (int i = 0; i < array.length; i++) {
+      System.err.printf("Dizi[%d] giriniz: ", i);
+      array[i] = scan.nextLong();
+    }
+    System.out.printf("regular array : %s \n", arrayToString(array));
+
+    var reverse_array = array.clone();
+    for (int i = 0; i < array.length; i++) {
+      int reverse_index = (array.length - 1) - i;
+
+      reverse_array[i] = array[reverse_index];
+    }
+
+    System.out.printf("reverse array : %s \n", arrayToString(reverse_array));
   }
 }
