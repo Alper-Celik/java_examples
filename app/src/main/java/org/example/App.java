@@ -2,11 +2,11 @@ package org.example;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.List;
 
 public class App {
   public static void üçgen_kenar() {
@@ -427,6 +427,18 @@ public class App {
 
   public static void main(String[] args) {
     // find_indexes_of_random_array(args);
-    ortalama_hesap.main(args);
+    // ortalama_hesap.main(args);
+    Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= (n - i); j++) {
+        System.out.print(" ");
+      }
+      for (int j = 1; j <= (i); j++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+
   }
 }
