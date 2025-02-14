@@ -425,20 +425,16 @@ public class App {
     }
   }
 
-  public static void main(String[] args) {
-    // find_indexes_of_random_array(args);
-    // ortalama_hesap.main(args);
-    Scanner scan = new Scanner(System.in);
-    int n = scan.nextInt();
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= (n - i); j++) {
-        System.out.print(" ");
-      }
-      for (int j = 1; j <= (i); j++) {
-        System.out.print("*");
-      }
-      System.out.println();
+  public static double Dizi_ortalama_hesap(double[] array) {
+    double out = 0;
+    for (double d : array) {
+      out += d;
     }
+    return out / array.length;
+  }
 
+  public static void main(String[] args) {
+    double[] a = { 10, 50, 6, 5, 9, 55, 2 };
+    System.out.println(Dizi_ortalama_hesap(a));
   }
 }
