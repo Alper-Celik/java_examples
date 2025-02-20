@@ -433,8 +433,97 @@ public class App {
     return out / array.length;
   }
 
-  public static void main(String[] args) {
-    double[] a = { 10, 50, 6, 5, 9, 55, 2 };
-    System.out.println(Dizi_ortalama_hesap(a));
+  public static void sum_of_odd_even() {
+    var scan = new Scanner(System.in);
+    int N = 0;
+    System.out.println("please enter a number");
+    N = scan.nextInt();
+
+    sum_of_odd_even(N);
+
+    scan.close();
   }
+
+  public static void sum_of_odd_even(int N) {
+
+    long oddSum = 0, evenSum = 0;
+
+    for (int i = 1; i <= N; i++) {
+      if (i % 2 == 0) {
+        evenSum += i;
+      } else {
+        oddSum += i;
+      }
+    }
+
+    System.out.printf("sum of odd numbers = %d , sum of even numbers = %d", oddSum, evenSum);
+
+  }
+
+  public class method_practice {
+
+    public static void print_sum(int a, int b) {
+      System.out.println(a + b);
+    }
+
+    public static double print_avg(long N) {
+      double acc = 0;
+      for (long i = 1; i <= N; i++) {
+        acc += i;
+      }
+      return acc / (double) N;
+    }
+
+    public static void print_array_sum(int[] array) {
+      long sum = 0;
+      for (int i : array) {
+        sum += i;
+      }
+      System.out.println(sum);
+    };
+
+    public static double array_avg(int[] array) {
+      long sum = 0;
+      for (int i : array) {
+        sum += i;
+      }
+
+      return sum / (double) array.length;
+    }
+
+    public static int array_min(int[] array) {
+      int min = array[0];
+      for (int i : array) {
+        if (min > i) {
+          min = i;
+        }
+      }
+
+      return min;
+    }
+
+    public static int array_max(int[] array) {
+      int max = array[0];
+      for (int i : array) {
+        if (max < i) {
+          max = i;
+        }
+      }
+
+      return max;
+    }
+
+  }
+
+  public static void main(String[] args) {
+    // sum_of_odd_even();
+    method_practice.print_sum(5, 10); // example 1
+    System.out.println(method_practice.print_avg(10)); // example 2
+    int[] array = { 1, 5, 6, 2, 3 };
+    method_practice.print_array_sum(array);// example 3
+    System.out.println(method_practice.array_avg(array));// example 4
+    System.out.println(method_practice.array_min(array)); // example 5
+    System.out.println(method_practice.array_max(array)); // example 6
+  }
+
 }
