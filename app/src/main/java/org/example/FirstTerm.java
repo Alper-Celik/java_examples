@@ -160,7 +160,7 @@ public class FirstTerm {
       var scan = new Scanner(System.in);
 
       System.out.println("sırasıyla satır ve sütün sayısını giriniz \n*herhangi birine sıfır girerek çıkabilirsiniz");
-      long sayı1 = scan.nextLong(), sayı2 = scan.nextLong(), toplam = 0;
+      long sayı1 = scan.nextLong(), sayı2 = scan.nextLong();
 
       if (sayı1 == 0 || sayı2 == 0) {
         break;
@@ -172,6 +172,7 @@ public class FirstTerm {
         }
         System.out.println("");
       }
+      scan.close();
     }
   }
 
@@ -245,7 +246,7 @@ public class FirstTerm {
       }
       System.out.print("\n");
     }
-
+    scan.close();
   }
 
   public static void array_practice(String[] args) {
