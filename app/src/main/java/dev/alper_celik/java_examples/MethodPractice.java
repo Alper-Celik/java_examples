@@ -1,4 +1,4 @@
-package org.example;
+package dev.alper_celik.java_examples;
 
 public class MethodPractice {// hafta 1
   public static void print_sum(int a, int b) {

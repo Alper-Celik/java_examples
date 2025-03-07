@@ -1,4 +1,4 @@
-package org.example;
+package dev.alper_celik.java_examples;
 
 import java.util.List;
 

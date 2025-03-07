@@ -1,4 +1,4 @@
-package org.example;
+package dev.alper_celik.java_examples;
 
 public class Rectangle {
 
