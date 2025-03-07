@@ -1,5 +1,7 @@
 package dev.alper_celik.java_examples;
 
+import dev.alper_celik.java_examples.second_term.*;
+
 public class App {
 
   public static void main(String[] args) {

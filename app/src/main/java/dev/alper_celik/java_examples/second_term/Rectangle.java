@@ -1,11 +1,11 @@
-package dev.alper_celik.java_examples;
+package dev.alper_celik.java_examples.second_term;
 
 public class Rectangle {
 
   private double height;
   private double width;
 
-  Rectangle(double height, double width) {
+  public Rectangle(double height, double width) {
     setHeight(height);
     setWidth(width);
   }

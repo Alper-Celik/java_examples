@@ -1,4 +1,4 @@
-package dev.alper_celik.java_examples;
+package dev.alper_celik.java_examples.second_term;
 
 public class Date {
   private int year, month, day;

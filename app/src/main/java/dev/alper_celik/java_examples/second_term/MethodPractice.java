@@ -1,4 +1,6 @@
-package dev.alper_celik.java_examples;
+package dev.alper_celik.java_examples.second_term;
+
+import dev.alper_celik.java_examples.utils.*;
 
 public class MethodPractice {// hafta 1
   public static void print_sum(int a, int b) {
@@ -141,7 +143,7 @@ public class MethodPractice {// hafta 1
     Float[] vec1 = { 5f, 6f, 5.5f };
     Float[] vec2 = { 4f, 6f, 0f };
     Float[] vecsum = MethodPractice.add_vectors(vec1, vec2);
-    System.out.println(Utils.arrayToString(vecsum)); // example 7
+    System.out.println(ArrayUtils.arrayToString(vecsum)); // example 7
     System.out.println(MethodPractice.dot_product(vec1, vec2)); // example 8
 
     Float[][] matrix1 = {
@@ -150,8 +152,8 @@ public class MethodPractice {// hafta 1
         { 2f, 5f, 40f, 6f },
         // { 1f, 55f, 44f, 6f }
     };
-    System.out.println(Utils.arrayToString(MethodPractice.matrix_min_of_columns(matrix1)));// example 9
-    System.out.println(Utils.arrayToString(MethodPractice.matrix_max_of_rows(matrix1)));// example 10
+    System.out.println(ArrayUtils.arrayToString(MethodPractice.matrix_min_of_columns(matrix1)));// example 9
+    System.out.println(ArrayUtils.arrayToString(MethodPractice.matrix_max_of_rows(matrix1)));// example 10
 
   }
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import dev.alper_celik.java_examples.utils.*;
 
 public class FirstTerm {
   public static void üçgen_kenar() {
@@ -298,7 +299,7 @@ public class FirstTerm {
       random_numbers[i] = rand.nextInt(rand_min, rand_max);
     }
 
-    System.out.println(Utils.arrayToString(random_numbers));
+    System.out.println(ArrayUtils.arrayToString(random_numbers));
 
     System.out.println("Bulmak istediğiniz sayı: ");
     var searched_num = scan.nextInt();
@@ -315,7 +316,7 @@ public class FirstTerm {
     } else if (found_indicies.size() == 1) {
       System.out.printf("Sayının endeksi %d\n", found_indicies.getFirst());
     } else {
-      System.out.printf("Sayının endexleri(0 dan başlayan): %s\n", Utils.arrayToString(found_indicies));
+      System.out.printf("Sayının endexleri(0 dan başlayan): %s\n", ArrayUtils.arrayToString(found_indicies));
       System.out.printf("Sayının oludğu dizinin eleman sayısı: %d\n", random_numbers.length);
       System.out.printf("Sayının tekrar miktarı: %d\n", found_indicies.size());
       System.out.printf("Sayının çıkma olasılığı: %% %f\n",
@@ -355,7 +356,7 @@ public class FirstTerm {
       System.err.printf("Dizi[%d] giriniz: ", i);
       array[i] = scan.nextLong();
     }
-    System.out.printf("regular array : %s \n", Utils.arrayToString(array));
+    System.out.printf("regular array : %s \n", ArrayUtils.arrayToString(array));
 
     var reverse_array = array.clone();
     for (int i = 0; i < array.length; i++) {
@@ -364,7 +365,7 @@ public class FirstTerm {
       reverse_array[i] = array[reverse_index];
     }
 
-    System.out.printf("reverse array : %s \n", Utils.arrayToString(reverse_array));
+    System.out.printf("reverse array : %s \n", ArrayUtils.arrayToString(reverse_array));
 
     scan.close();
   }

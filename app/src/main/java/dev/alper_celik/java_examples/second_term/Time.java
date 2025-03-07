@@ -1,4 +1,4 @@
-package dev.alper_celik.java_examples;
+package dev.alper_celik.java_examples.second_term;
 
 public class Time {
 
@@ -44,7 +44,7 @@ public class Time {
     }
   }
 
-  Time(int hour, int minute, int second) {
+  public Time(int hour, int minute, int second) {
     setHour(hour);
     setMinute(minute);
     setSecond(second);

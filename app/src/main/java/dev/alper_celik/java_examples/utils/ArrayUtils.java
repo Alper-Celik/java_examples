@@ -1,8 +1,8 @@
-package dev.alper_celik.java_examples;
+package dev.alper_celik.java_examples.utils;
 
 import java.util.List;
 
-public class Utils {
+public class ArrayUtils {
   public static <T> String arrayToString(T[] array) {
     var sb = new StringBuilder();
     sb.append("[ ");
@@ -19,5 +19,4 @@ public class Utils {
   public static <T> String arrayToString(List<T> list) {
     return arrayToString(list.toArray());
   }
-
 }
