@@ -27,15 +27,15 @@ public class Rectangle {
   }
 
   public double getPerimeter() {
-    return (height * 2) + (width * 2);
+    return (getHeight() * 2) + (getWidth() * 2);
   }
 
   public double getArea() {
-    return height * width;
+    return getHeight() * getWidth();
   }
 
-  public void printInfo() {
-    System.out.printf("width: %f, height: %f \narea: %f, perimiter: %f\n", getWidth(), getHeight(), getArea(),
+  public String getInfo() {
+    return String.format("width: %f, height: %f \narea: %f, perimiter: %f\n", getWidth(), getHeight(), getArea(),
         getPerimeter());
   }
 }
