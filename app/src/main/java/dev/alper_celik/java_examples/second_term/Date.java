@@ -3,6 +3,12 @@ package dev.alper_celik.java_examples.second_term;
 public class Date {
   private int year, month, day;
 
+  Date(int year, int month, int day) {
+    setYear(year);
+    setMonth(month);
+    setDay(day);
+  }
+
   public int getYear() {
     return year;
   }
@@ -27,18 +33,18 @@ public class Date {
     this.day = day;
   }
 
-  public void printDate() {
-    System.out.printf("%d-%d-%d\n", getYear(), getMonth(), getDay());
+  public String getDate() {
+    return String.format("%d-%d-%d", getYear(), getMonth(), getDay());
   };
 
   public void nextDay() { // assume every month is 30 days
-    if (day < 30) {
-      day++;
+    if (getDay() < 30) {
+      setDay(getDay() + 1);
     } else if (month < 12) {
-      month++;
+      setMonth(getMonth() + 1);
       setDay(1);
     } else {
-      year++;
+      setYear(getYear() + 1);
       setDay(1);
       setMonth(1);
     }
