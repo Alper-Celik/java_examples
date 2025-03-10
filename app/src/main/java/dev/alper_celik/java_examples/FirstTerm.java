@@ -9,8 +9,12 @@ import java.util.concurrent.Executors;
 import dev.alper_celik.java_examples.utils.*;
 
 public class FirstTerm {
-  public static void üçgen_kenar() {
-    Scanner scan = new Scanner(System.in);
+
+  public static void ucgen_kenar() {
+    ucgen_kenar(new Scanner(System.in));
+  }
+
+  public static void ucgen_kenar(Scanner scan) {
     System.out.print("a kenarını girin :");
     float a = scan.nextFloat();
     System.out.print("b kenarını girin :");
@@ -32,8 +36,11 @@ public class FirstTerm {
     scan.close();
   };
 
-  public static void üçgen_alan() {
-    Scanner scan = new Scanner(System.in);
+  public static void ucgen_alan() {
+    ucgen_alan(new Scanner(System.in));
+  }
+
+  public static void ucgen_alan(Scanner scan) {
     System.out.print("taban uzunluğu giriniz:");
     float taban_uzunluğu = scan.nextFloat();
 
@@ -45,7 +52,10 @@ public class FirstTerm {
   }
 
   public static void hesap_makinesi() {
-    Scanner scan = new Scanner(System.in);
+    hesap_makinesi(new Scanner(System.in));
+  }
+
+  public static void hesap_makinesi(Scanner scan) {
     System.out.println("iki sayı giriniz:");
     double sayı1 = scan.nextDouble(), sayı2 = scan.nextDouble();
     System.out.print("işlem seçiniz:");
@@ -67,7 +77,7 @@ public class FirstTerm {
         break;
       default:
         System.out.println("hata: yanlış işlem");
-        System.exit(10);
+        return;
     }
     System.out.printf("sonuç: %f", sonuç);
 
@@ -75,7 +85,10 @@ public class FirstTerm {
   }
 
   public static void not_hesaplama() {
-    Scanner scan = new Scanner(System.in);
+    not_hesaplama(new Scanner(System.in));
+  }
+
+  public static void not_hesaplama(Scanner scan) {
     System.out.println("sırasıyla vize ve final notunuzu giriniz");
     double vize_notu = scan.nextDouble();
     double final_notu = scan.nextDouble();
