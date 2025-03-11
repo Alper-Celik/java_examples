@@ -92,6 +92,7 @@ class FirstTermTests {
     FirstTerm.not_hesaplama(new Scanner(String.format("%s %s", vize_notu, final_notu)));
     assertTrue(outContent.toString().contains(harf_notu));
     assertTrue(outContent.toString().contains(not));
+
   }
 
   @Test
