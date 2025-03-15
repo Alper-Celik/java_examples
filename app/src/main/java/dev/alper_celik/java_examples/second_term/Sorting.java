@@ -1,8 +1,21 @@
 package dev.alper_celik.java_examples.second_term;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Sorting {
+  public static Integer[] generate_random_array(int length, int min, int max) {
+    var rand = new Random();
+    var arr = new Integer[length];
+
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = rand.nextInt(min, max);
+    }
+
+    return arr;
+  }
+
   public static void insertion_sort(Integer[] arr) {
     for (int i = 1; i < arr.length; i++) {
       int key = arr[i];
