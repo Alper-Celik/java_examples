@@ -34,7 +34,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "dev.alper_celik.java_examples.App"
 }
 
 tasks.named<Test>("test") {
