@@ -3,6 +3,7 @@ package dev.alper_celik.java_examples.second_term;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.*;
 
 public class Sorting {
   public static Integer[] generate_random_array(int length, int min, int max) {
@@ -45,13 +46,14 @@ public class Sorting {
     }
   }
 
-  public static Integer[] merge_sort(Integer[] arr) {
-    return merge_sort_clas.merge_sort(arr);
+  public static Integer[] merge_sort(Integer[] arr) throws InterruptedException, ExecutionException {
+    var result = merge_sort_clas.merge_sort(arr, Executors.newVirtualThreadPerTaskExecutor());
+    return result;
   }
 
   private class merge_sort_clas {
-    public static Integer[] merge_sort(Integer[] arr) {
-
+    public static Integer[] merge_sort(Integer[] arr, ExecutorService service)
+        throws InterruptedException, ExecutionException {
       if (arr.length == 2) {
         if (arr[0] > arr[1]) {
           var tmp = arr[0];
@@ -68,10 +70,15 @@ public class Sorting {
       var half_arr_right = Arrays.copyOfRange(arr, 0, (arr.length / 2));
       var half_arr_left = Arrays.copyOfRange(arr, (arr.length / 2), arr.length);
 
-      half_arr_right = merge_sort(half_arr_right);
-      half_arr_left = merge_sort(half_arr_left);
-
-      return merge(half_arr_right, half_arr_left);
+      if (arr.length > 1_000_000) {// creating tasks for smaller arrays seems to be slower
+        Future<Integer[]> sorted_half_arr_right = service.submit(() -> merge_sort(half_arr_right, service));
+        Future<Integer[]> sorted_half_arr_left = service.submit(() -> merge_sort(half_arr_left, service));
+        return merge(sorted_half_arr_right.get(), sorted_half_arr_left.get());
+      } else {
+        var sorted_half_arr_right = merge_sort(half_arr_right, service);
+        var sorted_half_arr_left = merge_sort(half_arr_left, service);
+        return merge(sorted_half_arr_right, sorted_half_arr_left);
+      }
     }
 
     public static Integer[] merge(Integer[] rhs_arr, Integer[] lhs_arr) {
