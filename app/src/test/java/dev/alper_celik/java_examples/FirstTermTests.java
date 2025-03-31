@@ -138,4 +138,14 @@ class FirstTermTests {
 
     assertEquals(outContent.toString(), output + "\n");
   }
+
+  @Test
+  void kare_çiz_test() {
+    FirstTerm.kare_çiz(new Scanner("3 4 0 0"));
+
+    assertTrue(outContent.toString().contains("""
+        ⭐⭐⭐⭐
+        ⭐⭐⭐⭐
+        ⭐⭐⭐⭐"""));
+  }
 }

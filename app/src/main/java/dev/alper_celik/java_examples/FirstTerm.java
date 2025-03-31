@@ -178,9 +178,12 @@ public class FirstTerm {
     scan.close();
   }
 
-  public static void kare_çiz(String[] args) {
+  public static void kare_çiz() {
+    kare_çiz(new Scanner(System.in));
+  }
+
+  public static void kare_çiz(Scanner scan) {
     while (true) {
-      var scan = new Scanner(System.in);
 
       System.out.println("sırasıyla satır ve sütün sayısını giriniz \n*herhangi birine sıfır girerek çıkabilirsiniz");
       long sayı1 = scan.nextLong(), sayı2 = scan.nextLong();
@@ -195,8 +198,8 @@ public class FirstTerm {
         }
         System.out.println("");
       }
-      scan.close();
     }
+    scan.close();
   }
 
   public static ArrayList<Integer> PozitifTamBölenler(int sayı) {
