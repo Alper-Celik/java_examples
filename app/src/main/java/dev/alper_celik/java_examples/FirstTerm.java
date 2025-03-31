@@ -125,11 +125,14 @@ public class FirstTerm {
   }
 
   public static void artık_yıl() {
-    var scan = new Scanner(System.in);
+    artık_yıl(new Scanner(System.in));
+  }
+
+  public static void artık_yıl(Scanner scan) {
 
     System.out.print("bir yılı giriniz: ");
     var yıl = scan.nextInt();
-    boolean artık_yıl = (yıl % 4 == 0) || ((yıl % 100 == 0) && (yıl % 400 == 0));
+    boolean artık_yıl = (yıl % 4 == 0) && ((yıl % 100 != 0) || (yıl % 400 == 0));
 
     if (artık_yıl) {
       System.out.printf("%d artık bir yıldır \n", yıl);

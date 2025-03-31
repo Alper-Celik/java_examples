@@ -101,4 +101,16 @@ class FirstTermTests {
 
     assertEquals(BigInteger.valueOf(3628800), FirstTerm.factorial(BigInteger.valueOf(10)));
   }
+
+  @ParameterizedTest
+  @CsvSource({
+      "1996, true",
+      "2000, true",
+      "2100, false",
+      "2104, true",
+  })
+  void artık_yıl_test(String date, boolean is_leap_year) {
+    FirstTerm.artık_yıl(new Scanner(date));
+    assertTrue(outContent.toString().contains("artık bir yıldır") == is_leap_year);
+  }
 }
