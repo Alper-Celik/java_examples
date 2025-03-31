@@ -126,4 +126,16 @@ class FirstTermTests {
 
     assertTrue(outContent.toString().contains("toplamı " + sum));
   }
+
+  @ParameterizedTest
+  @CsvSource({
+      "125 5,625",
+      "60 60,3600",
+      "1525 2,3050"
+  })
+  void pozitif_çarpma_test(String input, String output) {
+    FirstTerm.pozitif_çarpma(new Scanner(input));
+
+    assertEquals(outContent.toString(), output + "\n");
+  }
 }

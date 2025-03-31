@@ -161,8 +161,11 @@ public class FirstTerm {
     scan.close();
   }
 
-  public static void pozitif_çarpma(String[] args) {
-    var scan = new Scanner(System.in);
+  public static void pozitif_çarpma() {
+    pozitif_çarpma(new Scanner(System.in));
+  }
+
+  public static void pozitif_çarpma(Scanner scan) {
 
     long sayı1 = scan.nextLong(), sayı2 = scan.nextLong(), toplam = 0;
 
