@@ -161,4 +161,14 @@ class FirstTermTests {
   void sihirli_sayı_mı_test() {
     assertTrue(FirstTerm.sihirli_sayı_mı(8128));
   }
+
+  @Test
+  void içi_boş_dörtgen_test() {
+    FirstTerm.içi_boş_dörtgen(new Scanner("4 3"));
+
+    assertTrue(outContent.toString().contains("""
+        ****
+        *  *
+        ****"""));
+  }
 }

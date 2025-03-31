@@ -254,9 +254,11 @@ public class FirstTerm {
 
   }
 
-  public static void içi_boş_dörtgen(String[] args) {
+  public static void içi_boş_dörtgen() {
+    içi_boş_dörtgen(new Scanner(System.in));
+  }
 
-    var scan = new Scanner(System.in);
+  public static void içi_boş_dörtgen(Scanner scan) {
 
     int en = scan.nextInt(), boy = scan.nextInt();
 
