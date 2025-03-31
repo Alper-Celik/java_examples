@@ -113,4 +113,17 @@ class FirstTermTests {
     FirstTerm.artık_yıl(new Scanner(date));
     assertTrue(outContent.toString().contains("artık bir yıldır") == is_leap_year);
   }
+
+  @ParameterizedTest
+  @CsvSource({
+      "4,4",
+      "35,8",
+      "126,9",
+      "54545454,36"
+  })
+  void basamak_toplamı_test(String number, String sum) {
+    FirstTerm.basamak_toplamı(new Scanner(number));
+
+    assertTrue(outContent.toString().contains("toplamı " + sum));
+  }
 }

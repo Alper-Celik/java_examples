@@ -145,7 +145,10 @@ public class FirstTerm {
   }
 
   public static void basamak_toplamı() {
-    var scan = new Scanner(System.in);
+    basamak_toplamı(new Scanner(System.in));
+  }
+
+  public static void basamak_toplamı(Scanner scan) {
     var sayı = scan.nextLong();
     long toplam = 0;
 
@@ -154,7 +157,7 @@ public class FirstTerm {
       toplam += sayı_tmp % 10;
       sayı_tmp = sayı_tmp / 10;
     }
-    System.out.printf("%d sayısının basamak sayısı %d", sayı, toplam);
+    System.out.printf("%d sayısının basamakları toplamı %d", sayı, toplam);
     scan.close();
   }
 
