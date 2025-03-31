@@ -156,4 +156,9 @@ class FirstTermTests {
     assertEquals(new ArrayList<Integer>(List.of(1, 2, 3, 4, 6, 12)),
         FirstTerm.PozitifTamBölenler(12));
   }
+
+  @Test
+  void sihirli_sayı_mı_test() {
+    assertTrue(FirstTerm.sihirli_sayı_mı(8128));
+  }
 }
