@@ -1,8 +1,19 @@
 package dev.alper_celik.java_examples.utils;
 
 import java.util.List;
+import java.util.Random;
 
 public class ArrayUtils {
+  public static Integer[] generate_random_array(int length, int min, int max) {
+    var rand = new Random();
+    var arr = new Integer[length];
+
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = rand.nextInt(min, max);
+    }
+
+    return arr;
+  }
 
   public static boolean isSortedFromMinToMax(Integer[] arr) {
     for (int i = 0; i <= arr.length - 2; i++) {

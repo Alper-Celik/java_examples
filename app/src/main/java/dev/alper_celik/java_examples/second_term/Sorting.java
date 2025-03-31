@@ -1,20 +1,9 @@
 package dev.alper_celik.java_examples.second_term;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.concurrent.*;
 
 public class Sorting {
-  public static Integer[] generate_random_array(int length, int min, int max) {
-    var rand = new Random();
-    var arr = new Integer[length];
-
-    for (int i = 0; i < arr.length; i++) {
-      arr[i] = rand.nextInt(min, max);
-    }
-
-    return arr;
-  }
 
   public static Integer[] insertion_sort(Integer[] input_arr) {
     var arr = input_arr.clone();

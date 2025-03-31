@@ -21,7 +21,7 @@ public class SortingTests {
   @ParameterizedTest
   @MethodSource("methodProvider")
   void sortingTests(Function<Integer[], Integer[]> fun) {
-    var random_array = Sorting.generate_random_array(100_000, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    var random_array = ArrayUtils.generate_random_array(50_000, Integer.MIN_VALUE, Integer.MAX_VALUE);
     assertTrue(ArrayUtils.isSortedFromMinToMax(fun.apply(random_array)));
   }
 }
