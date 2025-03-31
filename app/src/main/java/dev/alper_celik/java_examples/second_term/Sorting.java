@@ -1,6 +1,5 @@
 package dev.alper_celik.java_examples.second_term;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -17,7 +16,8 @@ public class Sorting {
     return arr;
   }
 
-  public static void insertion_sort(Integer[] arr) {
+  public static Integer[] insertion_sort(Integer[] input_arr) {
+    var arr = input_arr.clone();
     for (int i = 1; i < arr.length; i++) {
       int key = arr[i];
       int j = i - 1;
@@ -28,9 +28,11 @@ public class Sorting {
       }
       arr[j + 1] = key;
     }
+    return arr;
   }
 
-  public static void bouble_sort(Integer[] arr) {
+  public static Integer[] bouble_sort(Integer[] input_arr) {
+    var arr = input_arr.clone();
     int n = arr.length;
 
     for (int i = 0; i < n - 1; i++) {
@@ -44,10 +46,18 @@ public class Sorting {
         }
       }
     }
+    return arr;
   }
 
-  public static Integer[] merge_sort(Integer[] arr) throws InterruptedException, ExecutionException {
-    var result = merge_sort_clas.merge_sort(arr, Executors.newVirtualThreadPerTaskExecutor());
+  public static Integer[] merge_sort(Integer[] arr) {
+    Integer[] result = new Integer[] {};
+    try {
+      result = merge_sort_clas.merge_sort(arr.clone(), Executors.newVirtualThreadPerTaskExecutor());
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (ExecutionException e) {
+      e.printStackTrace();
+    }
     return result;
   }
 

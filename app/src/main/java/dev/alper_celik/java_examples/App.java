@@ -11,12 +11,7 @@ public class App {
     Integer[] arr = Sorting.generate_random_array(100_000_000, Integer.MIN_VALUE, Integer.MAX_VALUE);
     Integer[] result = null;
     var dur = MethodUtils.execution_time_of(() -> {
-      try {
-        return Sorting.merge_sort(arr);
-      } catch (InterruptedException | ExecutionException e) {
-        e.printStackTrace();
-      }
-      return null;
+      return Sorting.merge_sort(arr);
     });
     System.out.println(dur.getKey());
   }
