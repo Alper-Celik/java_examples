@@ -1,8 +1,13 @@
 package dev.alper_celik.java_examples;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.AfterEach;
@@ -10,9 +15,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FirstTermTests {
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -136,7 +138,7 @@ class FirstTermTests {
   void pozitif_çarpma_test(String input, String output) {
     FirstTerm.pozitif_çarpma(new Scanner(input));
 
-    assertEquals(outContent.toString(), output + "\n");
+    assertEquals(output + "\n", outContent.toString());
   }
 
   @Test
@@ -147,5 +149,11 @@ class FirstTermTests {
         ⭐⭐⭐⭐
         ⭐⭐⭐⭐
         ⭐⭐⭐⭐"""));
+  }
+
+  @Test
+  void PozitifTamBölenler_test() {
+    assertEquals(new ArrayList<Integer>(List.of(1, 2, 3, 4, 6, 12)),
+        FirstTerm.PozitifTamBölenler(12));
   }
 }
