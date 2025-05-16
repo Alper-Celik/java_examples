@@ -9,23 +9,23 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ProductTests {
+class ProductTests {
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
   private final PrintStream originalOut = System.out;
 
   @BeforeEach
-  public void setUpStreams() {
+  void setUpStreams() {
     outContent.reset();
     System.setOut(new PrintStream(outContent));
   }
 
   @AfterEach
-  public void restoreStreams() {
+  void restoreStreams() {
     System.setOut(originalOut);
   }
 
   @Test
-  public void Product_test() {
+  void Product_test() {
     Product car = new Product("lux car", 50000, 3);
     car.printProduct();
     assertEquals("lux car,50000.0,3 pcs\n", outContent.toString());
@@ -34,7 +34,7 @@ public class ProductTests {
   }
 
   @Test
-  public void Product_constroctor_test() {
+  void Product_constroctor_test() {
     var prd1 = new Product("car");
     var prd2 = new Product("car", 5);
 

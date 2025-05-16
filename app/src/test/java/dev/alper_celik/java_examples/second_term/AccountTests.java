@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class AccountTests {
+class AccountTests {
 
   @Test
-  public void accountTests() {
+  void accountTests() {
     Account artosAccount = new Account("Arto's account", 100.00);
     assertEquals(100.00, artosAccount.balance());
     assertEquals("Arto's account", artosAccount.getAccountName());

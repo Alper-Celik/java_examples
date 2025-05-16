@@ -9,14 +9,14 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MethodPracticeTests {
+class MethodPracticeTests {
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
   private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
   private final PrintStream originalOut = System.out;
   private final PrintStream originalErr = System.err;
 
   @BeforeEach
-  public void setUpStreams() {
+  void setUpStreams() {
     outContent.reset();
     errContent.reset();
     System.setOut(new PrintStream(outContent));
@@ -24,7 +24,7 @@ public class MethodPracticeTests {
   }
 
   @AfterEach
-  public void restoreStreams() {
+  void restoreStreams() {
     System.setOut(originalOut);
     System.setErr(originalErr);
   }

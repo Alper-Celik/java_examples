@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.*;
 
 import dev.alper_celik.java_examples.utils.ArrayUtils;
 
-public class SortingTests {
+class SortingTests {
   static Stream<Function<Integer[], Integer[]>> methodProvider() {
     return Stream.of(
         ((x) -> Sorting.insertion_sort(x)),
