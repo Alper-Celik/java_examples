@@ -25,5 +25,5 @@ class AccountTests {
 
     assertTrue(artosAccount.toString().contains("Arto's account"));
 
-  };
+  }
 }
