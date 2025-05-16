@@ -10,12 +10,19 @@ class GaugeTest {
   void Gauge_test() {
     var gauge = new Gauge();
     assertEquals(0, gauge.value());
+    gauge.decrese();
+    assertEquals(0, gauge.value());
+
     gauge.increase();
     assertEquals(1, gauge.value());
 
     gauge.increase();
     gauge.increase();
     gauge.increase();
+    gauge.increase();
+    assertEquals(5, gauge.value());
+    assertEquals(true, gauge.full());
+
     gauge.increase();
     assertEquals(5, gauge.value());
     assertEquals(true, gauge.full());

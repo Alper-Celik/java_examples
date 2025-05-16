@@ -8,11 +8,15 @@ public class Gauge {
   }
 
   public void increase() {
-    value++;
+    if (value < 5) {
+      value++;
+    }
   }
 
   public void decrese() {
-    value--;
+    if (value > 0) {
+      value--;
+    }
   }
 
   public int value() {
